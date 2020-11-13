@@ -9,7 +9,13 @@ BIN=flutter-golang-integral
 
 all: build
 
-build:
+mod:
+	$(GOCMD) mod download
+
+protobuf: mod
+	protoc --proto_path ./echo/proto --go_out=plugins=grpc:./echo/proto/ ./echo/proto/echo.proto
+
+build: protobuf
 	$(GOBUILD) -o $(BIN) main.go
 
 clean:
