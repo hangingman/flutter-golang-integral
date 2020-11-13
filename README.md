@@ -32,3 +32,12 @@ $ grpcurl -plaintext localhost:50051 list
 grpc.reflection.v1alpha.ServerReflection
 pb.EchoService
 ```
+
+- エコーさせてみる
+
+```sh
+$ grpcurl -plaintext -d '{"message": "malarkey"}' localhost:50051 pb.EchoService/Echo
+{
+  "message": "malarkey"
+}
+```
