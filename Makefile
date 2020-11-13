@@ -13,10 +13,10 @@ mod:
 	$(GOCMD) mod download
 
 protobuf: mod
-	protoc --proto_path ./echo/proto --go_out=plugins=grpc:./echo/proto/ ./echo/proto/echo.proto
+	protoc --proto_path ./echo/proto --go_out=plugins=grpc:./pb --go_opt=paths=source_relative ./echo/proto/echo.proto
 
 build: protobuf
-	$(GOBUILD) -o $(BIN) main.go
+	$(GOBUILD) -v -o $(BIN) main.go
 
 clean:
 	$(GOCLEAN)

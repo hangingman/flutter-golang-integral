@@ -1,8 +1,10 @@
 syntax = "proto3";
 
-//option go_package = "github.com/hangingman/flutter-golang-integral/echo/proto";
+// https://stackoverflow.com/a/62540631/2565527
+// protobufferで生成したファイルをpbというパッケージとする
+option go_package = "github.com/hangingman/flutter-golang-integral/pb;pb";
 
-package echo;
+package pb;
 
 message EchoRequest {
   string message = 1;
